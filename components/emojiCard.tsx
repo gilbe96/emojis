@@ -1,6 +1,7 @@
 import { Dialog, Transition } from "@headlessui/react";
 import React, { FunctionComponent, useState, Fragment } from "react";
 import UP from "../public/up-button.png";
+import Image from "next/image";
 
 export interface EmojiCardProps {
   code?: string;
@@ -20,7 +21,7 @@ const EmojiCard: FunctionComponent<EmojiCardProps> = ({
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="bg-[#c5c6e9] p-2 rounded-xl shadow-md flex flex-col items-center">
+    <div className="bg-[#c5c6e9] p-2 rounded-xl shadow-md flex flex-col items-center gap-2">
       <span
         className="text-4xl md:text-6xl mb-2 pt-3"
         role={"img"}
@@ -28,16 +29,18 @@ const EmojiCard: FunctionComponent<EmojiCardProps> = ({
       >
         {emoji}
       </span>
-      <h3 className="font-bold text-gray-800">{name}</h3>
+      <h4 className="font-bold text-gray-800 h-10">{name}</h4>
       <button
         onClick={() => {
           setIsOpen(true);
         }}
         className="text-blue-500 pb-3 pt-5 border-none"
       >
-        <img
+        <Image
           src={UP.src}
-          alt=""
+          alt="Landscape picture"
+          width={30}
+          height={30}
           className="w-10 h-10 sm:w-8 sm:h-8 bg-[#2f3288] transition-all duration-500 hover:bg-[#a645be] border-spacing-20 rounded-full p-1"
         />
       </button>
